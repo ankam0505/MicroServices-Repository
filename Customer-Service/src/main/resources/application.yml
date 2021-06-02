@@ -1,0 +1,34 @@
+server:
+  port: 9090
+  contextPath: /customer-service
+
+spring:
+    application:
+       name: CUSTOMER-SERVICE
+    datasource:
+        initialization-mode: always
+        password: root
+        url: jdbc:mysql://localhost:3306/spring_boot
+        username: root
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+                
+management:
+     endpoints:
+       web:
+        exposure:
+         include: "*"             
+                
+                
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+          defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost  
